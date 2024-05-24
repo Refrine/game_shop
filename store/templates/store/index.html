@@ -1,0 +1,28 @@
+{% extends "store/base.html" %}
+
+{% block content %}
+    <h1 class="text-3xl font-bold mb-4">Добро пожаловать в наш Игровой Магазин!</h1>
+    <p class="mb-4">Здесь вы найдете самые новые и популярные игры для всех платформ. Наслаждайтесь нашим тщательно подобранным каталогом и открывайте для себя удивительные миры.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Проверка наличия элементов -->
+        {% if items %}
+            {% for item in items %}
+                <div class="col-span-1 p-4 border rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold">{{ item.name }}</h2>
+                    <p class="text-lg">{{ item.price }} руб.</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет доступных игр в данный момент.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+<div class="bg-gray-700 p-4 rounded-lg shadow-lg">
+    <img src="game1.jpg" alt="Игра 1" class="h-48 w-full object-cover rounded-t-lg">
+    <div class="mt-4">
+        <h2 class="text-xl font-bold">Название Игры 1</h2>
+        <p class="mt-2 text-gray-300">Краткое описание игры. Интересный и захватывающий сюжет, уникальный игровой процесс.</p>
+        <button class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded text-white">Купить</button>
+    </div>
+</div>

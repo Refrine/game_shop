@@ -1,0 +1,27 @@
+{% extends "store/base.html" %}
+
+{% block content %}
+    <div class="max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-lg">
+        <h1 class="text-4xl font-bold mb-4 text-white">{{ item.name }}</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="col-span-1">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="rounded-lg mb-4 w-full h-auto object-cover">
+                {% else %}
+                    <p class="text-lg text-white">Изображение отсутствует</p>
+                {% endif %}
+            </div>
+            <div class="col-span-1 flex flex-col justify-between">
+                <div>
+                    <p class="text-2xl text-white mb-4">Цена: <span class="font-semibold">{{ item.price }} руб.</span></p>
+                    <!-- Добавьте другие детали товара здесь -->
+                    <p class="text-lg text-white mb-4">Описание:</p>
+                    <p class="text-white">{{ item.description }}</p>
+                </div>
+                <div>
+                    <a href="{% url 'item:items' %}" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Вернуться к списку товаров</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

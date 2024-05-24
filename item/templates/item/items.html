@@ -1,0 +1,29 @@
+{% extends "store/base.html" %}
+
+{% block content %}
+    <h1 class="text-3xl font-bold mb-4 text-white">Наши товары</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% if items %}
+            {% for item in items %}
+                <div class="col-span-1 p-4 border rounded-lg shadow-md">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" class="rounded-lg mb-2" style="max-width: 100%; height: auto;">
+                    {% else %}
+                        <p class="text-lg text-white">Изображение отсутствует</p>
+                    {% endif %}
+                    <h2 class="text-xl font-semibold text-white">{{ item.name }}</h2>
+                    <p class="text-lg text-white">{{ item.price }} руб.</p>
+                    <a href="{% url 'item:item_detail' pk=item.pk %}" class="text-white">Подробнее</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-white">Нет доступных товаров в данный момент.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+
+
+
