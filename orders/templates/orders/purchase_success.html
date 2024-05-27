@@ -1,0 +1,9 @@
+{% extends "store/base.html" %}
+
+{% block content %}
+    <div class="max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-4 text-white">Покупка успешно завершена</h1>
+        <p class="text-lg text-white">Спасибо за покупку, {{ order.user.username }}! Ваш заказ будет обработан в ближайшее время.</p>
+        <a href="{% url 'store:index' %}" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Вернуться на главную</a>
+    </div>
+{% endblock %}

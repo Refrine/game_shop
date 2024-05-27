@@ -14,12 +14,12 @@
             <div class="col-span-1 flex flex-col justify-between">
                 <div>
                     <p class="text-2xl text-white mb-4">Цена: <span class="font-semibold">{{ item.price }} руб.</span></p>
-                    <!-- Добавьте другие детали товара здесь -->
                     <p class="text-lg text-white mb-4">Описание:</p>
                     <p class="text-white">{{ item.description }}</p>
                 </div>
                 <div>
-                    <a href="{% url 'item:items' %}" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Вернуться к списку товаров</a>
+                    <a href="{% url 'orders:add_to_cart' pk=item.pk %}" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Купить</a>
+                    <a href="{% url 'item:items' %}" class="mt-6 inline-block bg-gray-700 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition duration-300">Вернуться к списку товаров</a>
                 </div>
             </div>
         </div>
