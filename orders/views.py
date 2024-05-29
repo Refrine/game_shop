@@ -26,3 +26,11 @@ def purchase(request):
     order.is_completed = True
     order.save()
     return render(request, 'orders/purchase_success.html', {'order': order})
+
+
+@login_required
+def purchase(request):
+    order = get_object_or_404(Order, user=request.user, is_completed=False)
+    order.is_completed = True
+    order.save()
+    return render(request, 'orders/purchase_success.html', {'order': order})

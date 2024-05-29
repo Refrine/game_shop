@@ -12,7 +12,8 @@
                     </li>
                 {% endfor %}
             </ul>
-            <p class="text-xl text-white mt-4">Общая стоимость: {{ order.items.all|sum:"get_total_price" }} руб.</p>
+            <p class="text-xl text-white mt-4">Общая стоимость: {{ total_price }} руб.</p>
+            <a href="{% url 'orders:purchase' %}" class="mt-6 inline-block bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition duration-300">Оформить заказ</a>
         {% else %}
             <p class="text-lg text-white">Ваша корзина пуста.</p>
         {% endif %}
