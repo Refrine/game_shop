@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 
-from .models import Item
+
 from rest_framework import generics
 from .models import Item
 from .serializers import ItemSerializer
@@ -29,6 +29,12 @@ def item_detail(request, pk):
     return render(request, 'item/item_detail.html', {
         'item': item
     })
+    
+    
+def search_items(request):
+    query = request.GET.get('query', '')
+    items = Item.objects.filter(name__icontains=query)
+    return render(request, 'item/search_results.html', {'items': items, 'query': query})
     
     
 
